@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.lovecalculator.databinding.FragmentCalculateBinding
+import com.example.lovecalculator.databinding.FragmentBlankBinding
 import com.example.lovecalculator.remote.LoveModel
 import com.example.lovecalculator.remote.RetrofitService
 import com.example.lovecalculator.viewmodel.LoveViewModel
@@ -19,9 +18,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class BlankFragment : Fragment() {
+class BlankFragment() : Fragment() {
     lateinit var binding: FragmentBlankBinding
-
+    private lateinit var viewModel: LoveViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

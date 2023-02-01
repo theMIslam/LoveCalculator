@@ -5,17 +5,18 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/blankFragment">
 
-
-
     <fragment
         android:id="@+id/fistFragment"
         android:name="com.example.lovecalculator.FistFragment"
         android:label="fragment_fist"
         tools:layout="@layout/fragment_fist" />
-    <fragment android:id="@+id/placeholder" />
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.example.lovecalculator.BlankFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment_to_fistFragment"
+            app:destination="@id/fistFragment" />
+    </fragment>
 </navigation>
