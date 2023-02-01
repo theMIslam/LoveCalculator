@@ -11,9 +11,11 @@ import retrofit2.Response
 class Repository {
 
     fun getLove(firstName: String, secondName: String): MutableLiveData<LoveModel> {
-        val liveLove = MutableLiveData<LoveModel>()
-        RetrofitService().api.calculateLove(firstName, secondName).enqueue(object : Callback<LoveModel>{
-            override fun onResponse(call: Call<LoveModel>, response: Response<LoveModel>) {
+        var liveLove = MutableLiveData<LoveModel>()
+        RetrofitService().api.calculateLove(firstName, secondName).enqueue(
+            object : Callback<LoveModel>{
+            override fun onResponse(
+                call: Call<LoveModel>, response: Response<LoveModel>) {
                 if (response.isSuccessful) {
                     liveLove.postValue(response.body())
                 }
