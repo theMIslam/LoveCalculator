@@ -5,17 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.lovecalculator.databinding.FragmentFistBinding
+import com.example.lovecalculator.databinding.FragmentFirstBinding
 import com.example.lovecalculator.remote.LoveModel
 
-class FistFragment : Fragment() {
-    lateinit var binding: FragmentFistBinding
+class FirstFragment : Fragment() {
+    lateinit var binding: FragmentFirstBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFistBinding.inflate(layoutInflater, container, false)
+        binding = FragmentFirstBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/fistFragment"
-        android:name="com.example.lovecalculator.FistFragment"
+        android:name="com.example.lovecalculator.FirstFragment"
         android:label="fragment_fist"
-        tools:layout="@layout/fragment_fist" />
+        tools:layout="@layout/fragment_first" />
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.example.lovecalculator.BlankFragment"
