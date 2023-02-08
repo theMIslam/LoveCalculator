@@ -1,15 +1,17 @@
 package com.example.lovecalculator.boarding.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lovecalculator.Prefs
+import com.example.lovecalculator.R
 import com.example.lovecalculator.boarding.OnBoard
 import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 
-class BoardingAdapter(val onItemClick:() -> Unit,var navController: NavController): RecyclerView.Adapter<BoardingAdapter.BoardingViewHolder>() {
+class BoardingAdapter(val onItemClick: Context, var navController: NavController): RecyclerView.Adapter<BoardingAdapter.BoardingViewHolder>() {
     private var onBoardingList = arrayListOf(
         OnBoard("https://img.freepik.com/free-vector/virtual-relationships-and-online-dating-cartoon-illustration_1284-58109.jpg?w=1380&t=st=1672935980~exp=1672936580~hmac=b572390c88d0fbd6f9891dc0583a0db9a5b2cc030841ed31b5633abaad2c1a99", "Love calculator", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."),
         OnBoard("https://img.freepik.com/premium-vector/a-man-gives-a-ring-to-a-girl_126980-114.jpg?w=1380", "Track progress", "Have a good time, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra suspendisse potenti nullam ac tortor. "),
@@ -40,14 +42,14 @@ class BoardingAdapter(val onItemClick:() -> Unit,var navController: NavControlle
             }
             binding.btnStart.setOnClickListener {
 
-                val prefs= Prefs(context)
+                val prefs= Prefs(NoOpContinuation.context)
 
                 prefs.saveState()
 
-                navController.navigate(R.id.mainFragment)
+                navController.navigate(R.id.blankFragment)
 
             }
-            if (boards.lastIndexOf(board) == boards.lastIndex){
+            if (onBoardingList.lastIndexOf(onBoard) == onBoardingList.lastIndex){
                 binding.btnStart.visibility = View.VISIBLE
             } else{
                 binding.btnStart.visibility = View.INVISIBLE

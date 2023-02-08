@@ -1,8 +1,10 @@
 package com.example.lovecalculator
 
 import android.content.Context
-import android.content.SharedPreferences
+import androidx.room.Room
 import com.example.lovecalculator.remote.LoveApi
+import com.example.lovecalculator.room.AppDataBase
+import com.example.lovecalculator.room.LoveDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +24,10 @@ class AppModule {
             .addConverterFactory(GsonConverterFactory.create()).build()
             .create(LoveApi::class.java)
     }
-
+    @Provides
+    fun provideHelper():Helper{
+        return Helper()
+    }
     @Singleton
     @Provides
     fun providePrefs(@ApplicationContext context: Context):Prefs{
@@ -30,4 +35,14 @@ class AppModule {
     }
 
 
+    @Singleton
+    @Provides
+    fun provideDataBase(@ApplicationContext app:Context):AppDataBase=
+        Room.databaseBuilder(app, AppDataBase::class.java,"history")
+            .allowMainThreadQueries().fallbackToDestructiveMigration().build()
+    @Singleton
+    @Provides
+    fun provideHistoryDao(appDataBase:AppDataBase): LoveDao {
+        return  appDataBase.loveDao()
+    }
 }
