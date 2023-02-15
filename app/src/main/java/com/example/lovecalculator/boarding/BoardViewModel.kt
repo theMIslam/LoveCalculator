@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class BoardingViewModel @Inject constructor(
+class BoardViewModel @Inject constructor(
     private val repository: Repository,
 ) : ViewModel() {
 

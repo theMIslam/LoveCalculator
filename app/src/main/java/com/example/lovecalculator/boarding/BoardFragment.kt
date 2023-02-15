@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
-import com.example.lovecalculator.boarding.adapter.BoardingAdapter
+import com.example.lovecalculator.boarding.adapter.BoardAdapter
 import com.example.lovecalculator.databinding.FragmentBoardingBinding
 
 class BoardFragment : Fragment() {
@@ -23,7 +23,7 @@ class BoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter=BoardingAdapter(requireContext(),findNavController())
+        val adapter=BoardAdapter(requireContext(),findNavController())
         binding.viewPager.adapter=adapter
         binding.dotsIndicator.attachTo(binding.viewPager)
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object:

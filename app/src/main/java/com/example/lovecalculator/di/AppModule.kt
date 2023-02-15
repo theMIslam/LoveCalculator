@@ -1,7 +1,9 @@
-package com.example.lovecalculator
+package com.example.lovecalculator.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.lovecalculator.Helper
+import com.example.lovecalculator.Prefs
 import com.example.lovecalculator.remote.LoveApi
 import com.example.lovecalculator.room.AppDataBase
 import com.example.lovecalculator.room.LoveDao
@@ -25,12 +27,12 @@ class AppModule {
             .create(LoveApi::class.java)
     }
     @Provides
-    fun provideHelper():Helper{
+    fun provideHelper(): Helper {
         return Helper()
     }
     @Singleton
     @Provides
-    fun providePrefs(@ApplicationContext context: Context):Prefs{
+    fun providePrefs(@ApplicationContext context: Context): Prefs {
         return Prefs(context)
     }
 
